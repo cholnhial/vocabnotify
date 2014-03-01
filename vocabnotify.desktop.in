@@ -1,0 +1,13 @@
+[Desktop Entry]
+_Name=VocabNotify
+_GenericName=Vocabulary Manager
+_X-GNOME-FullName=VocabNotify Vocabulary Manager
+_Comment=Helps you remember the definition of words better
+_Keywords=dictionary;
+Exec=vocabnotify
+Icon=vocabnotify
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Utility;Languages;Literature;
+Version=0.1

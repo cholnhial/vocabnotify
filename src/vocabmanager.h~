@@ -11,7 +11,7 @@
 #define MAX_BUFFER_SIZE 1024
 
 /**
- *  vocab_manager_init()
+ *  vocab_manager_init()i
  *
  *  Initialises vocab manager database 
  * 	@Must be called first before any other operation

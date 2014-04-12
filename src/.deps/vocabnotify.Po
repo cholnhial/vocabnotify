@@ -1,19 +1,35 @@
-vocabnotify.o: vocabnotify.c vocabnotify.h /usr/include/glib-2.0/glib.h \
+vocabnotify.o: vocabnotify.c /usr/include/fcntl.h /usr/include/features.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/include/bits/fcntl.h /usr/include/sys/types.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/time.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include/stddef.h \
+ /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/sigset.h \
+ /usr/include/bits/time.h /usr/include/bits/select2.h \
+ /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/bits/stat.h /usr/include/bits/fcntl2.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/getopt.h /usr/include/bits/unistd.h /usr/include/errno.h \
+ /usr/include/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h /usr/include/string.h \
+ /usr/include/xlocale.h /usr/include/bits/string.h \
+ /usr/include/bits/string2.h /usr/include/stdlib.h \
+ /usr/include/bits/string3.h vocabnotify.h /usr/include/glib-2.0/glib.h \
  /usr/include/glib-2.0/glib/galloca.h /usr/include/glib-2.0/glib/gtypes.h \
  /usr/lib64/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include-fixed/syslimits.h \
- /usr/include/limits.h /usr/include/features.h /usr/include/sys/cdefs.h \
- /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
- /usr/include/gnu/stubs-64.h /usr/include/bits/posix1_lim.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/posix2_lim.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include/float.h \
- /usr/include/glib-2.0/glib/gversionmacros.h /usr/include/time.h \
- /usr/include/bits/time.h /usr/include/bits/types.h \
- /usr/include/bits/typesizes.h /usr/include/xlocale.h \
+ /usr/include/glib-2.0/glib/gversionmacros.h \
  /usr/include/glib-2.0/glib/garray.h \
  /usr/include/glib-2.0/glib/gasyncqueue.h \
  /usr/include/glib-2.0/glib/gthread.h \
@@ -21,10 +37,9 @@ vocabnotify.o: vocabnotify.c vocabnotify.h /usr/include/glib-2.0/glib.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include/stdarg.h \
  /usr/include/glib-2.0/glib/gquark.h \
  /usr/include/glib-2.0/glib/gbacktrace.h /usr/include/signal.h \
- /usr/include/bits/sigset.h /usr/include/bits/signum.h \
- /usr/include/bits/siginfo.h /usr/include/bits/sigaction.h \
- /usr/include/bits/sigcontext.h /usr/include/bits/sigstack.h \
- /usr/include/sys/ucontext.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/bits/signum.h /usr/include/bits/siginfo.h \
+ /usr/include/bits/sigaction.h /usr/include/bits/sigcontext.h \
+ /usr/include/bits/sigstack.h /usr/include/sys/ucontext.h \
  /usr/include/bits/sigthread.h /usr/include/glib-2.0/glib/gbase64.h \
  /usr/include/glib-2.0/glib/gbitlock.h \
  /usr/include/glib-2.0/glib/gbookmarkfile.h \
@@ -78,13 +93,92 @@ vocabnotify.o: vocabnotify.c vocabnotify.h /usr/include/glib-2.0/glib.h \
  /usr/include/glib-2.0/glib/deprecated/gmain.h \
  /usr/include/glib-2.0/glib/deprecated/grel.h \
  /usr/include/glib-2.0/glib/deprecated/gthread.h /usr/include/pthread.h \
- /usr/include/endian.h /usr/include/bits/endian.h \
- /usr/include/bits/byteswap.h /usr/include/sched.h \
- /usr/include/bits/sched.h /usr/include/bits/setjmp.h setting_manager.h \
- /usr/include/fcntl.h /usr/include/bits/fcntl.h /usr/include/sys/types.h \
- /usr/include/sys/select.h /usr/include/bits/select.h \
- /usr/include/bits/select2.h /usr/include/sys/sysmacros.h \
- /usr/include/bits/stat.h /usr/include/bits/fcntl2.h
+ /usr/include/sched.h /usr/include/bits/sched.h \
+ /usr/include/bits/setjmp.h setting_manager.h
+
+/usr/include/fcntl.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/bits/fcntl.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/time.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include/stddef.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/bits/select2.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/stat.h:
+
+/usr/include/bits/fcntl2.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/bits/unistd.h:
+
+/usr/include/errno.h:
+
+/usr/include/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/string3.h:
 
 vocabnotify.h:
 
@@ -98,23 +192,11 @@ vocabnotify.h:
 
 /usr/include/glib-2.0/glib/gmacros.h:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include/stddef.h:
-
 /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include-fixed/limits.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include-fixed/syslimits.h:
 
 /usr/include/limits.h:
-
-/usr/include/features.h:
-
-/usr/include/sys/cdefs.h:
-
-/usr/include/bits/wordsize.h:
-
-/usr/include/gnu/stubs.h:
-
-/usr/include/gnu/stubs-64.h:
 
 /usr/include/bits/posix1_lim.h:
 
@@ -127,16 +209,6 @@ vocabnotify.h:
 /usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/include/float.h:
 
 /usr/include/glib-2.0/glib/gversionmacros.h:
-
-/usr/include/time.h:
-
-/usr/include/bits/time.h:
-
-/usr/include/bits/types.h:
-
-/usr/include/bits/typesizes.h:
-
-/usr/include/xlocale.h:
 
 /usr/include/glib-2.0/glib/garray.h:
 
@@ -156,8 +228,6 @@ vocabnotify.h:
 
 /usr/include/signal.h:
 
-/usr/include/bits/sigset.h:
-
 /usr/include/bits/signum.h:
 
 /usr/include/bits/siginfo.h:
@@ -169,8 +239,6 @@ vocabnotify.h:
 /usr/include/bits/sigstack.h:
 
 /usr/include/sys/ucontext.h:
-
-/usr/include/bits/pthreadtypes.h:
 
 /usr/include/bits/sigthread.h:
 
@@ -302,12 +370,6 @@ vocabnotify.h:
 
 /usr/include/pthread.h:
 
-/usr/include/endian.h:
-
-/usr/include/bits/endian.h:
-
-/usr/include/bits/byteswap.h:
-
 /usr/include/sched.h:
 
 /usr/include/bits/sched.h:
@@ -315,21 +377,3 @@ vocabnotify.h:
 /usr/include/bits/setjmp.h:
 
 setting_manager.h:
-
-/usr/include/fcntl.h:
-
-/usr/include/bits/fcntl.h:
-
-/usr/include/sys/types.h:
-
-/usr/include/sys/select.h:
-
-/usr/include/bits/select.h:
-
-/usr/include/bits/select2.h:
-
-/usr/include/sys/sysmacros.h:
-
-/usr/include/bits/stat.h:
-
-/usr/include/bits/fcntl2.h:

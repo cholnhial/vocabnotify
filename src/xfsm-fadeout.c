@@ -1,7 +1,7 @@
 /* $Id$ */
 /*-
  * Copyright (c) 2004-2006 Benedikt Meurer <benny@xfce.org>
- * All rights reserved.
+	 * All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 /*#ifdef HAVE_CONFIG_H
 #include <config.h>
 #endifasdd
-*/
+ */
 
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
@@ -33,7 +33,7 @@
 
 struct _XfsmFadeout
 {
-  GSList *windows;
+	GSList *windows;
 };
 
 
@@ -41,90 +41,90 @@ struct _XfsmFadeout
 XfsmFadeout*
 xfsm_fadeout_new (GdkDisplay *display)
 {
-  GdkWindowAttr  attr;
-  XfsmFadeout   *fadeout;
-  GdkWindow     *root;
-  GdkCursor     *cursor;
-  cairo_t       *cr;
-  gint           width;
-  gint           height;
-  gint           n;
-  GdkPixbuf     *root_pixbuf;
-  GdkPixbuf     *backbuf;
-  GdkScreen     *gdk_screen;
-  GdkWindow     *window;
-  GdkColor       black = { 0, };
+	GdkWindowAttr  attr;
+	XfsmFadeout   *fadeout;
+	GdkWindow     *root;
+	GdkCursor     *cursor;
+	cairo_t       *cr;
+	gint           width;
+	gint           height;
+	gint           n;
+	GdkPixbuf     *root_pixbuf;
+	GdkPixbuf     *backbuf;
+	GdkScreen     *gdk_screen;
+	GdkWindow     *window;
+	GdkColor       black = { 0, };
 
-  fadeout = g_slice_new0 (XfsmFadeout);
+	fadeout = g_slice_new0 (XfsmFadeout);
 
-  cursor = gdk_cursor_new (GDK_WATCH);
+	cursor = gdk_cursor_new (GDK_WATCH);
 
-  attr.x = 0;
-  attr.y = 0;
-  attr.event_mask = 0;
-  attr.wclass = GDK_INPUT_OUTPUT;
-  attr.window_type = GDK_WINDOW_TEMP;
-  attr.cursor = cursor;
-  attr.override_redirect = TRUE;
+	attr.x = 0;
+	attr.y = 0;
+	attr.event_mask = 0;
+	attr.wclass = GDK_INPUT_OUTPUT;
+	attr.window_type = GDK_WINDOW_TEMP;
+	attr.cursor = cursor;
+	attr.override_redirect = TRUE;
 
-  for (n = 0; n < gdk_display_get_n_screens (display); ++n)
-    {
-      gdk_screen = gdk_display_get_screen (display, n);
+	for (n = 0; n < gdk_display_get_n_screens (display); ++n)
+	{
+		gdk_screen = gdk_display_get_screen (display, n);
 
-      root = gdk_screen_get_root_window (gdk_screen);
-      //gdk_drawable_get_size (GDK_DRAWABLE (root), &width, &height);
+		root = gdk_screen_get_root_window (gdk_screen);
+		//gdk_drawable_get_size (GDK_DRAWABLE (root), &width, &height);
 
-      /* Added */
-      width  =  gdk_window_get_width (root);
-      height =  gdk_window_get_height(root);
+		/* Added */
+		width  =  gdk_window_get_width (root);
+		height =  gdk_window_get_height(root);
 
-      attr.width = width;
-      attr.height = height;
-      window = gdk_window_new (root, &attr, GDK_WA_X | GDK_WA_Y
-                               | GDK_WA_NOREDIR | GDK_WA_CURSOR);
+		attr.width = width;
+		attr.height = height;
+		window = gdk_window_new (root, &attr, GDK_WA_X | GDK_WA_Y
+		                         | GDK_WA_NOREDIR | GDK_WA_CURSOR);
 
-    /*if (gdk_screen_is_composited (gdk_screen)
-          && gdk_screen_get_rgba_colormap (gdk_screen) != NULL)*/
-    if (gdk_screen_is_composited (gdk_screen)
-          && gdk_screen_get_rgba_visual (gdk_screen) != NULL)
+		/*if (gdk_screen_is_composited (gdk_screen)
+								 && gdk_screen_get_rgba_colormap (gdk_screen) != NULL)*/
+		if (gdk_screen_is_composited (gdk_screen)
+		    && gdk_screen_get_rgba_visual (gdk_screen) != NULL)
 
-        {
-          /* transparent black window */
-          gdk_window_set_background (window, &black);
-          gdk_window_set_opacity (window, 0.50);
-        }
-      else
-        {
-          /* create background for window */
-          backbuf = gdk_pixbuf_get_from_window (root, 0, 0, width, height);
-          //cr = gdk_cairo_create (GDK_DRAWABLE (backbuf));
-          cr = gdk_cairo_create (root);
-          gdk_cairo_set_source_pixbuf(cr, backbuf, width, height);
-                    
-          /* make of copy of the root window */
-          root_pixbuf = gdk_pixbuf_get_from_window(root, 0, 0, width, height);
-          gdk_cairo_set_source_pixbuf (cr, root_pixbuf, 0, 0);
-          cairo_paint (cr);
-          g_object_unref (G_OBJECT (root_pixbuf));
+		{
+			/* transparent black window */
+			gdk_window_set_background (window, &black);
+			gdk_window_set_opacity (window, 0.50);
+		}
+		else
+		{
+			/* create background for window */
+			backbuf = gdk_pixbuf_get_from_window (root, 0, 0, width, height);
+			//cr = gdk_cairo_create (GDK_DRAWABLE (backbuf));
+			cr = gdk_cairo_create (root);
+			gdk_cairo_set_source_pixbuf(cr, backbuf, width, height);
 
-          /* draw black layer */
-          gdk_cairo_set_source_color (cr, &black);
-          cairo_paint_with_alpha (cr, 0.50);
-          cairo_destroy (cr);
+			/* make of copy of the root window */
+			root_pixbuf = gdk_pixbuf_get_from_window(root, 0, 0, width, height);
+			gdk_cairo_set_source_pixbuf (cr, root_pixbuf, 0, 0);
+			cairo_paint (cr);
+			g_object_unref (G_OBJECT (root_pixbuf));
 
-          //gdk_window_set_back_pixmap (window, backbuf, FALSE);
-          g_object_unref (G_OBJECT (backbuf));
-        }
+			/* draw black layer */
+			gdk_cairo_set_source_color (cr, &black);
+			cairo_paint_with_alpha (cr, 0.50);
+			cairo_destroy (cr);
 
-      fadeout->windows = g_slist_prepend (fadeout->windows, window);
-    }
+			//gdk_window_set_back_pixmap (window, backbuf, FALSE);
+			g_object_unref (G_OBJECT (backbuf));
+		}
 
-  /* show all windows all at once */
-  g_slist_foreach (fadeout->windows, (GFunc) gdk_window_show, NULL);
+		fadeout->windows = g_slist_prepend (fadeout->windows, window);
+	}
 
-  gdk_cursor_unref (cursor);
+	/* show all windows all at once */
+	g_slist_foreach (fadeout->windows, (GFunc) gdk_window_show, NULL);
 
-  return fadeout;
+	gdk_cursor_unref (cursor);
+
+	return fadeout;
 }
 
 
@@ -132,8 +132,8 @@ xfsm_fadeout_new (GdkDisplay *display)
 void
 xfsm_fadeout_clear (XfsmFadeout *fadeout)
 {
-  if (fadeout != NULL)
-    g_slist_foreach (fadeout->windows, (GFunc) gdk_window_end_paint, NULL);
+	if (fadeout != NULL)
+		g_slist_foreach (fadeout->windows, (GFunc) gdk_window_end_paint, NULL);
 }
 
 
@@ -141,9 +141,9 @@ xfsm_fadeout_clear (XfsmFadeout *fadeout)
 void
 xfsm_fadeout_destroy (XfsmFadeout *fadeout)
 {
-  g_slist_foreach (fadeout->windows, (GFunc) gdk_window_hide, NULL);
-  g_slist_foreach (fadeout->windows, (GFunc) gdk_window_destroy, NULL);
-  
-  g_slist_free (fadeout->windows);
-  g_slice_free (XfsmFadeout, fadeout);
+	g_slist_foreach (fadeout->windows, (GFunc) gdk_window_hide, NULL);
+	g_slist_foreach (fadeout->windows, (GFunc) gdk_window_destroy, NULL);
+
+	g_slist_free (fadeout->windows);
+	g_slice_free (XfsmFadeout, fadeout);
 }

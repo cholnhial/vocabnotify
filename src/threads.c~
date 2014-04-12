@@ -35,7 +35,7 @@ gboolean add_vocab_thread_idle(gpointer user_data)
 		return FALSE;
 	}
 
-	
+	sleep(10);
 	/* check if this is a valid word */
 	swni_t* swni = vocab_manager_get_word_defintion(word);
 

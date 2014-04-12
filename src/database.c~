@@ -173,7 +173,6 @@ int database_generic_insert(sqlite3* db, char* query, int nitems, ...)
 
 	} while (res == SQLITE_SCHEMA);
 
-	return 0;
 }
 
 /**

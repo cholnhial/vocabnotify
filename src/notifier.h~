@@ -74,4 +74,5 @@ gboolean notifier_dialog_is_running();
 
 static void notifier_ungrab_input();
 
+static void notifier_ungrab_input();
 #endif

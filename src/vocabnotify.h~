@@ -6,7 +6,7 @@
 
 #define PROGRAM_NAME "vocabnotify" /* executable name too*/
 #define PROGRAM_NAME_DESKTOP "VocabNotify"
-#define PROGRAM_VERSION "0.2"
+#define PROGRAM_VERSION "0.1"
 #define CONFIG_FILE "vocabnotify.conf"
 #define VOCAB_DB_FILE "vocab.db"
 

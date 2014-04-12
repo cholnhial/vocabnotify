@@ -284,7 +284,7 @@ void notifier_dialog_hide()
  *  Paramaters:
  *   none
  *  returns:
- *    returns a GtkTextView pointer
+ *    none
  **/
 
 GtkTextView* notifier_dialog_get_text_view()

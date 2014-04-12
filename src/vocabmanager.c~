@@ -65,7 +65,7 @@ int vocab_manager_create_database(char* dbname, gboolean overwrite)
 
 	char* query = "CREATE TABLE " VOCAB_TABLE "(word TEXT PRIMARY KEY)";
 	if(database_execute(db, query) == -1) {
-
+		
 		return -1;
 	}
 
@@ -206,7 +206,7 @@ int vocab_manager_remove_all_words()
 	}
 
 	/* recreate the table, but this time 
-	 it's going to be empty */
+	it's going to be empty */
 
 	query = "CREATE TABLE " VOCAB_TABLE "(word TEXT PRIMARY KEY)";
 	if(database_execute(db, query) == -1) {
@@ -281,7 +281,7 @@ GSList* vocab_manager_get_words_list()
 void vocab_manager_free_word_defition(swni_t* swni_def) 
 {	
 	assert(swni_def != NULL);
-
+	
 	swni_wni_free();
 	swni_destroy_definitions_list(swni_def->definitions_list);
 	swni_destroy_synonyms_list(swni_def->synonyms_list);
@@ -318,22 +318,22 @@ void vocab_manager_cleanup()
  *  the elements in the list, and will
  *  free the list container memory too,
  *  this function does not need 'vocab_manager_init()'
-	 *  to work.
+ *  to work.
  * 
  *  Paramaters:
  *    a GSlist pointer 
  *  returns:
  *      none
  **/
-void vocab_manager_word_list_free(GSList* slist)
-{  
-	assert(slist != NULL);
+ void vocab_manager_word_list_free(GSList* slist)
+ {  
+ 	assert(slist != NULL);
 
-	for(GSList* iter = slist; iter != NULL; iter = iter->next) {
-		g_free(iter->data);
-	}
-	g_slist_free(slist);
-}
+ 	for(GSList* iter = slist; iter != NULL; iter = iter->next) {
+        g_free(iter->data);
+    }
+    g_slist_free(slist);
+ }
 
 /* Not apart of the interface */
 int is_initialised()

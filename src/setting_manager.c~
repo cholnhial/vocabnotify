@@ -34,21 +34,21 @@ gboolean setting_manager_init(gchar* settings_file, gboolean first_run)
 
 	if(!first_run) {
 		if(g_key_file_load_from_file(config_file,
-		                             settings_file,
-		                             G_KEY_FILE_KEEP_COMMENTS,
-		                             NULL)) {
+	 	settings_file,
+	 	G_KEY_FILE_KEEP_COMMENTS,
+	 	NULL)) {
 			settings->notification_intervals_secs = g_key_file_get_integer(config_file,
-			                                                               settings_strings[GROUP_SETTINGS],
-			                                                               settings_strings[NOTIFICATION_INTERVALS_SECS],
-			                                                               NULL);
+									  settings_strings[GROUP_SETTINGS],
+									  settings_strings[NOTIFICATION_INTERVALS_SECS],
+									  							 NULL);
 			settings->notification_expire_secs = g_key_file_get_integer(config_file,
-			                                                            settings_strings[GROUP_SETTINGS],
-			                                                            settings_strings[NOTIFICATION_EXPIRE_SECS],
-			                                                            NULL);
+											 settings_strings[GROUP_SETTINGS],
+											 settings_strings[NOTIFICATION_EXPIRE_SECS],
+																	  NULL);
 			settings->play_sound_on_notification = g_key_file_get_boolean(config_file,
-			                                                              settings_strings[GROUP_SETTINGS],
-			                                                              settings_strings[NOTIFICATION_PLAY_SOUND],
-			                                                              NULL);
+											 settings_strings[GROUP_SETTINGS],
+											 settings_strings[NOTIFICATION_PLAY_SOUND],
+																	  NULL);
 
 		} else {
 			return FALSE;
@@ -80,22 +80,22 @@ gboolean setting_manager_save_settings(settings_t* settingsp)
 	}
 
 	g_key_file_set_comment(config_file, 
-	                       NULL, 
-	                       NULL,
-	                       settings_strings[SETTINGS_COMMENT], NULL);
+						    NULL, 
+							NULL,
+	 						settings_strings[SETTINGS_COMMENT], NULL);
 
 	g_key_file_set_integer(config_file, 
-	                       settings_strings[GROUP_SETTINGS], 
-	                       settings_strings[NOTIFICATION_INTERVALS_SECS],
-	                       settingsp->notification_intervals_secs);
+							settings_strings[GROUP_SETTINGS], 
+							settings_strings[NOTIFICATION_INTERVALS_SECS],
+	 						settingsp->notification_intervals_secs);
 	g_key_file_set_integer(config_file, 
-	                       settings_strings[GROUP_SETTINGS],
-	                       settings_strings[NOTIFICATION_EXPIRE_SECS],
-	                       settingsp->notification_expire_secs);
+							settings_strings[GROUP_SETTINGS],
+							settings_strings[NOTIFICATION_EXPIRE_SECS],
+	 						settingsp->notification_expire_secs);
 	g_key_file_set_boolean(config_file, 
-	                       settings_strings[GROUP_SETTINGS],
-	                       settings_strings[NOTIFICATION_PLAY_SOUND],
-	                       settingsp->play_sound_on_notification);
+							settings_strings[GROUP_SETTINGS],
+							settings_strings[NOTIFICATION_PLAY_SOUND],
+	 						settingsp->play_sound_on_notification);
 
 	settings->notification_intervals_secs = settingsp->notification_intervals_secs;
 	settings->notification_expire_secs = settingsp->notification_expire_secs;

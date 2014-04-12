@@ -237,7 +237,7 @@ gboolean on_notification_display(gpointer user_data)
 	}
 
 	/* still got to select a word from the list */
-	GRand* grand = g_rand_new_with_seed(vocabnotify_get_random_seed ());
+	GRand* grand = g_rand_new_with_seed(time(0));
 	int n = g_rand_int_range(grand, 0, size);
 	g_rand_free(grand);
 

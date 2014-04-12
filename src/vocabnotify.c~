@@ -233,6 +233,5 @@ int vocabnotify_get_random_seed()
 		return seed;
 	}
 
-	close(fd);
 	return seed;
 }

@@ -680,6 +680,20 @@ void  gui_show_status_icon_popup_menu(guint button, guint activate_time)
 }
 
 
+/**
+ *  gui_notification_set_time()
+ *	
+ * This function will set the notification
+ * time, and add a timmer function
+ * which is our callback.
+ * without this function the program would
+ * not make those regular popups
+ * 
+ *  Paramaters:
+ *   a boolean: Tells the function whether to add or remove timer
+ *  returns:
+ *   none
+ **/
 void gui_set_notification_time(gboolean remove_idle)
 {	
 	if(remove_idle) 

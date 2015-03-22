@@ -359,7 +359,10 @@ AM_CFLAGS = \
 	 -lswni\
 	 -I\
 	 include/\
-	 -std=gnu99
+	 -std=gnu99\
+	 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT\
+	 -lSDL -lpthread\
+     -lsmpeg
 
 vocabnotify_SOURCES = \
 	callbacks.c \

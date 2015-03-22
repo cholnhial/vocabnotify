@@ -249,7 +249,26 @@ gboolean on_notification_display(gpointer user_data)
 
 	/* Get the text buffer and fill it in */
 	if(gui_create_defintions_text_buffer(word, gtk_text_view_get_buffer(notifier_dialog_get_text_view()))) {
+
+		/***
+		 * @Magic happens here
+		 * 
+		 * Finally we the popup display the dialog
+		 * ***/
+
+		/* But let's check and see if we can play the word  audio*/
+		GString* wordaudio_file = g_string_new ("");
+		g_string_sprintf(wordaudio_file, "%s%s.mp3", WORDSAUDIODIR, word);
+		/* If only an audo file exists then do bother to play it */
+		if(g_file_test (wordaudio_file->str, G_FILE_TEST_EXISTS) && prefs->play_sound_on_notification)
+		{
+			vocabnotify_play_audio (wordaudio_file->str);
+		}
+		g_string_free(wordaudio_file, TRUE);
+	   
 		notifier_dialog_show(word);
+		/* End of magic */
+		
 	} else  {
 		g_critical("Unable to construct the definition text buffer.\n");
 	}

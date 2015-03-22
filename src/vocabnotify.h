@@ -6,10 +6,10 @@
 
 #define PROGRAM_NAME "vocabnotify" /* executable name too*/
 #define PROGRAM_NAME_DESKTOP "VocabNotify"
-#define PROGRAM_VERSION "0.2"
+#define PROGRAM_VERSION "0.3"
 #define CONFIG_FILE "vocabnotify.conf"
 #define VOCAB_DB_FILE "vocab.db"
-
+#define WORDSAUDIODIR "/usr/local/share/vocabnotify/data/wordsaudio/"
 #define DEV_URANDOM "/dev/urandom"
 
 /* @globals */
@@ -143,6 +143,19 @@ gboolean vocabnotify_create_defaults();
  *    int that should be random
  **/
 int vocabnotify_get_random_seed();
+
+/**
+ *  vocabnotify_play_audio()
+ *	
+ * 	Plays an audio file.
+ *
+ *  Paramaters:
+ *    A string containing the path to the audio file
+ *  returns:
+ *    TRUE on success, FALSE otherwise
+ **/
+gboolean vocabnotify_play_audio(char* audio_file); 
+
 
  /* Not part of the general interface */
 #endif

@@ -2,7 +2,8 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
-
+#include <SDL/SDL.h>
+#include <smpeg/smpeg.h>
 #include "vocabnotify.h"
 
 /**
@@ -25,7 +26,7 @@ gboolean vocabnotify_init()
 	if(first_run) {
 		vocabnotify_create_config_directory();
 		if(!vocabnotify_create_defaults()) {
-			
+
 			return FALSE;
 		}
 	}
@@ -63,7 +64,7 @@ gboolean vocabnotify_is_first_run()
 		g_free(conf_path);
 		return FALSE;
 	} 
-	
+
 	g_free(conf_path);
 	return TRUE;
 }
@@ -235,4 +236,34 @@ int vocabnotify_get_random_seed()
 
 	close(fd);
 	return seed;
+}
+
+/**
+ *  vocabnotify_play_audio()
+ *	
+ * 	Plays an audio file.
+ *
+ *  Paramaters:
+ *    A string containing the path to the audio file
+ *  returns:
+ *    TRUE on success, FALSE otherwise
+ **/
+gboolean vocabnotify_play_audio(char* audio_file)
+{
+	SMPEG *mpeg;
+	SMPEG_Info info;
+
+	mpeg = SMPEG_new(audio_file,&info, 1);
+	if(mpeg == NULL) {
+		return FALSE;
+	}
+	SMPEG_play(mpeg);
+
+	while(SMPEG_status(mpeg)==SMPEG_PLAYING) {
+		SDL_Delay(250);
+	}
+
+	SMPEG_delete(mpeg);
+
+	return TRUE;
 }

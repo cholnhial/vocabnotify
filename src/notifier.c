@@ -13,7 +13,20 @@ static GtkWidget* scrolled_window;
 static GtkWidget* notification_title_label;
 static gboolean dialog_running = FALSE;
 
-
+/**
+ * notifier_dialog_screenshot_new()
+ *   
+ *  Don't let the function of this piece of code
+ *  scare you. The purpose of this funciton is
+ *  to darken the screen upon notification
+ * 
+ *  Parameters:
+ *	  GdkScreen: the screen which the notification will be on
+ *		by default this is the screen which is active
+ *	Returns:
+ *	  GdkPixbuf: the darken screen area
+ * 
+ **/
 static GdkPixbuf *
 notifier_dialog_screenshot_new (GdkScreen *screen)
 {
@@ -51,6 +64,19 @@ notifier_dialog_screenshot_new (GdkScreen *screen)
 	return screenshot;
 }
 
+
+/***
+ *  notifier_dialog_init()
+ * 
+ *  This function is responsible for initializing 
+ *  the popup window that is the heart of vocanotify
+ *  
+ *  Parameters:
+ *	  none
+ *  Returns:
+ *	  none
+ * 
+ * */
 void notifier_dialog_init()
 {
 
@@ -116,6 +142,21 @@ void notifier_dialog_init()
 
 }
 
+
+/***
+ *  notifier_grap_input()
+ * 
+ *  It's obvious this function is just going
+ *  to grab the keyboard allowing one to press
+ *  the (ESC) key to let the window go away
+	 
+ *  
+ *  Parameters:
+ *	  none
+ *  Returns:
+ *	  none
+ * 
+ * */
 static void notifier_grab_input()
 {
 	GdkDisplay* display = (GdkDisplay *) NULL;
@@ -145,7 +186,18 @@ static void notifier_grab_input()
 
 }
 
-
+/***
+ *  notifier_ungrap_input()
+ * 
+ *  This does the reverse of what we did above
+ *   
+ *  
+ *  Parameters:
+ *	  none
+ *  Returns:
+ *	  none
+ * 
+ * */
 static void notifier_ungrab_input()
 {
 	GdkDisplay* display = (GdkDisplay *) NULL;
@@ -173,6 +225,20 @@ static void notifier_ungrab_input()
 	}
 }
 
+
+/***
+ *  notifier_window_add_border()
+ * 
+ *  Don't know if it's really used, but
+ *  it's suppose to add a border around the 
+ *  popup, some sort of styling
+ * 
+ *  Parameters:
+ *	  GtkWindow: the popup window 
+ *  Returns:
+ *	  none
+ * 
+ * */
 static void notifier_window_add_border (GtkWindow *window)
 {
 	GtkWidget *box1, *box2;
@@ -194,6 +260,26 @@ static void notifier_window_add_border (GtkWindow *window)
 	gtk_container_add (GTK_CONTAINER (window), box1);
 }
 
+
+/***
+ *  notifier_dialog_show()
+ * 
+ *  This one is the most obvious,
+ *  and also the pinical point of
+ *  this module. It's main job
+ *  it to put together all functions
+ *  to display our nice little popup
+ *  box which wouldn't have been possible
+ *  without the XFCE (logout window) code.
+ * 
+ *  
+ * 
+ *  Parameters:
+ *	  gchar*: the word to grab dictionary meaning for and display
+ *  Returns:
+ *	  none
+ * 
+ * */
 void notifier_dialog_show(gchar* word)
 {	
 	GdkScreen* screen;

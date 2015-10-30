@@ -7,10 +7,10 @@ to help you memorise your vocabulary. It's based around wordnet
 
 # Linux
 
-Before installation
+### Notes before installation
 
-before you go ahead and install vocabnotify, there's one library that you need
-and that is libswni(simple wordnet interface library) it's on github, here 'link here'
+Before you go ahead and install vocabnotify, there's one library that you need
+and that is libswni(simple wordnet interface library) it's on github, here [libswni](https://github.com/cholnhial/libswni/ "")
 
  Dependencies:
   * gtk+-3.0
